@@ -369,8 +369,15 @@ footer {
   > * {
     overflow: auto;
   }
+  .content {
+    flex: 1;
+    -webkit-flex: 1;
+  }
 
   #main .page {
+    .entry {
+      max-width: 800px;
+    }
     > h1 {
       border-bottom: 1px solid #EEEEEE;
       padding-bottom: 16px;
