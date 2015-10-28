@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
 
     {% include meta.html %}
 
@@ -16,36 +16,36 @@
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+    <header class="masthead">
+        <a href="{{ site.baseurl }}/" class="site-avatar"><img src="/images/logo-with-name.svg" /></a>
+        {% for page in site.pages %}
+            {% if page.show_in_nav %}
+                <a class="head-nav-link" href="{{ page.url }}">{{ page.title }}</a>
+            {% endif %}
+        {% endfor %}
+    </header>
 
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
+    <div class="main-container">
+        <nav class="nav-links" >
+            {% for link in page.links %}
+                <div class="group">
+                    <a class="group-link" href="{{ link.url }}">{{ link.title }}</a>
+                    {% for link in link.links %}
+                        <a class="child-link" href="{{ link.url }}">{{ link.title }}</a>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </nav>
+        <div>
+            <div id="main" role="main">
+              {{ content }}
+            </div>
 
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
-        </header>
-      </div>
+            <footer class="footer">
+              {% include svg-icons.html %}
+            </footer>
+        </div>
     </div>
-
-    <div id="main" role="main" class="container">
-      {{ content }}
-    </div>
-
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
-
     {% include analytics.html %}
   </body>
 </html>

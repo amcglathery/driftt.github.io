@@ -5,10 +5,43 @@
 // IMPORTS
 //
 
-@import "reset";
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
+@font-face {
+  font-family: Brandon;
+  font-weight: 100;
+  src: url("/fonts/BrandonText-Thin.otf");
+}
 
+@font-face {
+  font-family: Brandon;
+  font-weight: 300;
+  src: url("/fonts/BrandonText-Light.otf");
+}
+
+@font-face {
+  font-family: Brandon;
+  font-style: normal;
+  src: url("/fonts/BrandonText-Regular.otf");
+}
+
+@font-face {
+  font-family: Brandon;
+  font-weight: 500;
+  src: url("/fonts/BrandonText-Medium.otf");
+}
+
+@font-face {
+  font-family: Brandon;
+  font-weight: 600;
+  src: url("/fonts/BrandonText-Bold.otf");
+}
+
+@font-face {
+  font-family: Brandon;
+  font-weight: 700;
+  src: url("/fonts/BrandonText-Black.otf");
+}
 /**************/
 /* BASE RULES */
 /**************/
@@ -18,10 +51,23 @@ html {
 }
 
 body {
-	background: $white;
-  color: red !important;
-  font: 18px/1.4 $helvetica;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  height: 100vh;
+  background: $white;
+  font-size: 16px;
+  font-family: Brandon, Helvetica Neue, Helvetica;
+  margin: 0;
   color: $darkGray;
+}
+
+.page {
+  padding-bottom: 87.5px;
+  padding-left: 87.5px;
+  padding-right: 87.5px;
+  padding-top: 30px;
 }
 
 .container {
@@ -65,16 +111,12 @@ h4 {
   color: $gray;
 }
 
-p {
-  margin: 15px 0;
-}
-
 a {
-  color: $blue;
+  color: #9A9A9A;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: $blue;
+    color: #2D88F5;
   }
 }
 
@@ -151,33 +193,28 @@ img {
 // .masthead
 //
 
-.wrapper-masthead {
-  margin-bottom: 50px;
-}
-
 .masthead {
-  padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
-
-  @include mobile {
-    text-align: center;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  padding: 8px 25px;
+  background-color: #39D5FF;
+  a {
+    color: white;
+    &:hover, &:active {
+      color: #2D88F5;
+    }
+    &.head-nav-link {
+      margin-right: 38px;
+    }
   }
-}
-
-.site-avatar {
-  float: left;
-  width: 70px;
-  height: 70px;
-  margin-right: 15px;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto;
-  }
-
-  img {
-    border-radius: 5px;
+  .site-avatar {
+    margin-right: 84px;
+    img {
+      height: 55px;
+      width: 134.5px;
+    }
   }
 }
 
@@ -208,33 +245,6 @@ img {
 
   @include mobile {
     margin: 3px 0;
-  }
-}
-
-nav {
-  float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
-  font-size: 18px;
-
-  @include mobile {
-    float: none;
-    margin-top: 9px;
-    display: block;
-    font-size: 16px;
-  }
-
-  a {
-    margin-left: 20px;
-    color: $darkGray;
-    text-align: right;
-    font-weight: 300;
-    letter-spacing: 1px;
-
-    @include mobile {
-      margin: 0 10px;
-      color: $blue;
-    }
   }
 }
 
@@ -272,16 +282,136 @@ nav {
   }
 }
 
-.wrapper-footer {
-  margin-top: 50px;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+footer {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  text-align: center;
+  background-size: cover;
+  padding-bottom: 15px;
+  padding-top: 230px;
+  background-position-y: 48%;
+  background-position-x: 60%;
+  background-image: url('/images/narhwal_snail_ocean.svg');
+
+  .icons {
+    width: 80px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    .svg-icon {
+      width: 18.5px;
+      height: 18.5px;
+      display: inline-block;
+    }
+  }
+
+  .links {
+    width: 350px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    a {
+      color: white;
+    }
+  }
+  .copyright {
+    color: white;
+  }
 }
 
-footer {
-  padding: 20px 0;
-  text-align: center;
+.nav-links {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  width: 200px;
+  padding-right: 28px;
+  padding-left: 28px;
+  padding-top: 60px;
+  background-color: #F8F8F8;
+  border: 1px solid #EEEEEE;
+
+  .group:not(:last-child) {
+    margin-bottom: 25px;
+  }
+
+  a {
+    font-size: 14px;
+    display: block;
+    color: #9A9A9A;
+    &.group-link {
+      color: #333333;
+      text-transform: uppercase;
+      margin-left: 0;
+      font-weight: 500;
+    }
+    &.child-link {
+      margin-left: 15px;
+      margin-top: 10px;
+    }
+    &:hover, &:active {
+      color: #2D88F5;
+    }
+  }
+}
+
+.main-container {
+  display: flex;
+  display: -webkit-flex;
+  flex: 1;
+  -webkit-flex: 1;
+  > * {
+    overflow: auto;
+  }
+
+  #main .page {
+    > h1 {
+      border-bottom: 1px solid #EEEEEE;
+      padding-bottom: 16px;
+    }
+    h2 {
+      margin-top: 0;
+      padding-top: 20px;
+      border-top: 1px solid #EEEEEE;
+    }
+    p {
+      margin: 25px 0;
+    }
+  }
+
+  table {
+    box-shadow: 0 0 0 1px #CCCCCC;
+    border-radius: 4px;
+    border-collapse: collapse;
+
+    code {
+      border-radius: 4px;
+      border: 1px solid #CCCCCC;
+      padding: 4px;
+    }
+    td {
+      padding: 20px;
+
+      &:not(:first-child) {
+        border-left: 1px solid #CCCCCC;
+      }
+    }
+    tr {
+      &:nth-child(even) {
+        background-color: #FAFAFA;
+      }
+      &:not(:last-child) td {
+        border-bottom: 1px solid #CCCCCC;
+      }
+    }
+
+  }
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
