@@ -92,7 +92,7 @@ This method is used to identify users based on their unique user id in your comp
         <em>number, optional</em>
       </td>
       <td>
-        the unix timesamp in milliseconds that the event was created at. We will will it in with the time we recieve the event if you do not pass it.
+        the unix timestamp in milliseconds that the event was created at. We will fill it in with the time we recieve the event if you do not pass it.
       </td>
     </tr>
   </tbody>
@@ -166,7 +166,7 @@ This method is what you call to send an event to Driftt. It takes an event name 
         <em>number, optional</em>
       </td>
       <td>
-        the unix timesamp in milliseconds that the event was created at. We will will it in with the time we recieve the event if you do not pass it.
+        the unix timestamp in milliseconds that the event was created at. We will fill it in with the time we recieve the event if you do not pass it.
       </td>
     </tr>
   </tbody>
