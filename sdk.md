@@ -89,7 +89,7 @@ driftt.identify([userId], [attributes]);
       <td>
         <code>userId</code>
         <br>
-        <em>string, number</em>
+        <em>string/number</em>
       </td>
       <td>
         The unique user ID in your company's user table for the user.
