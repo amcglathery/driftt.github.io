@@ -26,7 +26,7 @@ links:
 ---
 
 # Driftt JS SDK
-The Driftt SDK makes it dead simple to track events and customer information. Send your customer data through this SDK and Driftt can become intelligent. We’ll identify what makes a healthy user and empower you to become context-driven when communicating with customers.
+The Driftt SDK makes it simple to track events and customer information. Send your customer data through this SDK and Driftt can become intelligent. We’ll identify what makes a healthy user and empower you to become context-driven when communicating with customers.
 
 <div id="whats-driftt"></div>
 ## What is Driftt?
